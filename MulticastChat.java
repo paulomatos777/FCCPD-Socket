@@ -30,11 +30,7 @@ public class MulticastChat {
          String  name = JOptionPane.showInputDialog("Digite seu nome:");
           String topic = JOptionPane.showInputDialog("Digite o topico:");
 
-          if(topic.equals("Esportes") ){
-            PORT=PORT1;
-          }else{
-            PORT=PORT2;
-          }
+          PORT = topic.equals("Esportes") ? PORT1 : PORT2;
 
           // Cria um socket multicast
           InetAddress group = InetAddress.getByName(MULTICAST_ADDRESS);
@@ -93,8 +89,7 @@ public class MulticastChat {
                       byte[] data = formattedMessage.getBytes();
                       DatagramPacket packet = new DatagramPacket(data, data.length, group, PORT);
                       socket.send(packet);
-                      // socket.send(packet);
-                      
+                 
                   }
               }
               
