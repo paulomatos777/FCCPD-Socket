@@ -6,6 +6,9 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.io.IOException;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,10 +27,8 @@ public class MulticastChat {
 
         try (// Lê o nome e topico do usuário
         Scanner scanner = new Scanner(System.in)) {
-          System.out.print("Digite seu nome: ");
-          String name = scanner.nextLine();
-          System.out.print("Digite o tópico: ");
-          String topic = scanner.nextLine();
+         String  name = JOptionPane.showInputDialog("Digite seu nome:");
+          String topic = JOptionPane.showInputDialog("Digite o topico:");
 
           if(topic.equals("Esportes") ){
             PORT=PORT1;
@@ -73,8 +74,7 @@ public class MulticastChat {
               // Lê as mensagens a serem enviadas pelo usuário
               System.out.println("Digite uma mensagem a ser enviada ou SAIR");
               while (true) {
-                  System.out.print("> ");
-                  String text = scanner.nextLine();
+                  String text = JOptionPane.showInputDialog("Digite a mensagem a ser enviada ou SAIR:");
 
                   if (text.equalsIgnoreCase("SAIR")) {
                       // Cria um pacote com a mensagem de saída do usuário
